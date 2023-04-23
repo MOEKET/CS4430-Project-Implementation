@@ -1,0 +1,58 @@
+Populating Database with dummy data
+INSERT INTO Doctors(DoctorID,Name,District,Specialty) VALUES(1, 'Moeketsi', 'Leribe', 'Viral'),(2,'Rorisang', 'Roma', 'Bacterial');
+
+INSERT INTO Districts(District, Medical_Condition_Specialization) VALUES('Leribe', 'Virus'),('Maseru', 'Bacteria');
+  
+INSERT INTO Patient_Health_Records(Patient_ID,Name,Date_of_Birth,Medical_Record,District,Diagnosis,Treatment) VALUES(1,'Thabo','23 March 2023','Record4','Leribe','Healthy','Vitamin C'),(2,'Tebello','30 March 2023','Record29','Maseru','Sick','Vitamin D');
+
+P1.Get the name and medical condition specialization for all districts:
+
+SELECT I
+FROM Districts;
+
+
+2. Get the patient name and medical record for
+   a specific medical condition in a given district:
+
+SELECT Name, Medical_Record
+FROM Patient_Health_Records
+WHERE District = [district name] AND Diagnosis = [medical condition];
+
+3. Get the authentication information for a specific healthcare provider:
+
+SELECT Username, Password, District, Permission
+FROM Authentication
+WHERE Username = [username];
+
+
+
+4. Get the log of all actions performed by a specific user in a given district:
+
+SELECT Timestamp, Action, Result
+FROM Logs
+WHERE User = [username] AND District = [district name];
+
+
+5. Get the name and specialty of all healthcare providers in a given district:
+
+ SELECT Name, Specialty
+FROM Healthcare_Providers
+WHERE District = [district name];
+
+
+6. Get the name and description of all medical conditions:
+
+SELECT Name, Description
+FROM Medical_Conditions;
+
+7. Get the name and dosage of all medications prescribed for a specific medical record:
+SELECT Name, Dosage
+FROM Medications
+WHERE Medical_Record = [medical record];
+
+
+
+
+
+
+
