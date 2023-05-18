@@ -1,0 +1,101 @@
+-- Insert sample data into the Districts table
+INSERT INTO Districts (District, Medical_Condition_Specialization)
+VALUES ('Maseru', 'Cardiology'),
+       ('Thaba Tseka', 'Dermatology'),
+       ('Leribe', 'Orthopedics');
+
+-- Insert sample data into the Patient_Health_Records table
+INSERT INTO Patient_Health_Records (Patient_ID, Name, Date_of_Birth, Medical_Record, District, Diagnosis, Treatment)
+VALUES (1, 'John Smith', '1990-01-01', 'MR001', 'Maseru', 'Hypertension', 'Medication A'),
+       (2, 'Jane Doe', '1985-05-10', 'MR002', 'Thaba Tseka', 'Eczema', 'Medication B'),
+       (3, 'David Johnson', '1978-12-15', 'MR003', 'Leribe', 'Fractured leg', 'Surgery A');
+
+-- Insert sample data into the Authentication table
+INSERT INTO Authentication (Username, Password, District, Permission)
+VALUES ('user1', 'password1', 'Maseru', 'admin'),
+       ('user2', 'password2', 'Thaba Tseka', 'user'),
+       ('user3', 'password3', 'Leribe', 'user');
+
+-- Insert sample data into the Healthcare_Providers table
+INSERT INTO Healthcare_Providers (Provider_ID, Name, District, Specialty)
+VALUES (1, 'Queen II Hospital', 'Maseru', 'General Medicine'),
+       (2, 'Paray Hospital', 'Thaba Tseka', 'Dentistry'),
+       (3, 'Motebang Hospital', 'Leribe', 'Ophthalmology');
+
+-- Insert sample data into the Medical_Conditions table
+INSERT INTO Medical_Conditions (Condition_ID, Name, Description)
+VALUES (1, 'Hypertension', 'High blood pressure'),
+       (2, 'Eczema', 'Skin inflammation'),
+       (3, 'Fractured leg', 'Broken bone in the leg');
+
+-- Insert sample data into the Medications table
+INSERT INTO Medications (Medication_ID, Name, Dosage, Medical_Record, Date_Prescribed, Date_Filled)
+VALUES (1, 'Medication A', '10mg', 'MR001', '2023-05-10', '2023-05-11'),
+       (2, 'Medication B', '5mg', 'MR002', '2023-05-12', '2023-05-13'),
+       (3, 'Medication C', '20mg', 'MR003', '2023-05-14', '2023-05-15');
+
+-- Insert sample data into the Lab_Results table
+INSERT INTO Lab_Results (Result_ID, Medical_Record, Test_Name, Test_Date, Result_Value, Result_Units, Normal_Range, Result_Comments)
+VALUES (1, 'MR001', 'Blood pressure', '2023-05-10', '120', 'mmHg', 'Normal', 'No abnormalities detected'),
+       (2, 'MR002', 'Skin allergy test', '2023-05-12', 'Positive', 'N/A', 'N/A', 'Allergic reaction detected'),
+       (3, 'MR003', 'Bone density test', '2023-05-15', '0.85', 'g/cm²', 'Normal', 'No signs of osteoporosis');
+
+-- Insert sample data into the Surgeries table
+INSERT INTO Surgeries (SurgeryID, MedicalRecord, SurgeryName, SurgeryDate, Surgeon)
+VALUES (1, 'MR003', 'Leg fracture repair', '2023-05-13', 1),
+       (2, 'MR002', 'Skin grafting', '2023-05-14', 2),
+       (3, 'MR001', 'Angioplasty', '2023-05-16', 3);
+
+-- Insert sample data into the Doctors table
+INSERT INTO Doctors (DoctorID, Name, District, Specialty)
+VALUES (1, 'Dr. Smith', 'Maseru', 'Cardiology'),
+       (2, 'Dr. Johnson', 'Thaba Tseka', 'Dermatology'),
+       (3, 'Dr. Brown', 'Leribe', 'Orthopedics');
+
+-- Insert sample data into the prescriptions table
+INSERT INTO prescriptions (dosage, frequency, duration)
+VALUES ('10mg', 'Once daily', '30 days'),
+       ('5mg', 'Twice daily', '14 days'),
+       ('20mg', 'Three times daily', '7 days');
+       
+       
+MORE INSERTIONS:
+-- Insert sample data into the Authentication table
+INSERT INTO Authentication (Username, Password, District, Permission)
+VALUES ('user4', 'password4', 'Maseru', 'user');
+
+-- Insert sample data into the Patient_Health_Records table
+INSERT INTO Patient_Health_Records (Patient_ID, Name, Date_of_Birth, Medical_Record, District, Diagnosis, Treatment)
+VALUES (4, 'Sarah Johnson', '1995-07-20', 'MR004', 'Maseru', 'Asthma', 'Medication D');
+
+-- Insert sample data into the Medical_Conditions table
+INSERT INTO Medical_Conditions (Condition_ID, Name, Description)
+VALUES (4, 'Asthma', 'Respiratory condition causing breathing difficulties');
+
+-- Insert sample data into the Healthcare_Providers table
+INSERT INTO Healthcare_Providers (Provider_ID, Name, District, Specialty)
+VALUES (4, 'City Hospital', 'Maseru', 'Pulmonology');
+
+-- Insert sample data into the Districts table
+INSERT INTO Districts (District, Medical_Condition_Specialization)
+VALUES ('Maseru', 'Pulmonology');
+
+-- Insert sample data into the Medical_Conditions table
+INSERT INTO Medical_Conditions (Condition_ID, Name, Description)
+VALUES (5, 'Diabetes', 'Chronic condition affecting blood sugar levels');
+
+-- Update existing patients' medical conditions
+UPDATE Patient_Health_Records
+SET Diagnosis = 'Diabetes'
+WHERE Patient_ID IN (1, 2, 3);
+
+-- Insert sample data into the Surgeries table
+INSERT INTO Surgeries (SurgeryID, MedicalRecord, SurgeryName, SurgeryDate, Surgeon)
+VALUES (4, 'MR004', 'Lung Transplant', '2023-05-20', 4);
+
+-- Insert sample data into the Doctors table
+INSERT INTO Doctors (DoctorID, Name, District, Specialty)
+VALUES (4, 'Dr. Anderson', 'Maseru', 'Pulmonology');
+
+
+

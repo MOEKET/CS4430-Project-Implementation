@@ -1,0 +1,62 @@
+Retrieve the names of all patients along with their corresponding medical conditions and treatments:
+SELECT p.Name, c.Name AS Medical_Condition, p.Treatment
+FROM Patient_Health_Records p
+JOIN Medical_Conditions c ON p.Diagnosis = c.Name;
+
+Retrieve the names of healthcare providers and their specialties for a given district:
+SELECT h.Name, h.Specialty
+FROM Healthcare_Providers h
+JOIN Districts d ON h.District = d.District
+WHERE d.District = 'Maseru';
+
+Retrieve the medical records and corresponding lab results for patients diagnosed with hypertension:
+SELECT p.Medical_Record, l.Test_Name, l.Result_Value, l.Result_Units
+FROM Patient_Health_Records p
+JOIN Medical_Conditions c ON p.Diagnosis = c.Name
+JOIN Lab_Results l ON p.Medical_Record = l.Medical_Record
+WHERE c.Name = 'Hypertension';
+
+Retrieve the surgeries performed by a specific surgeon:
+SELECT s.SurgeryName, p.Name AS Patient_Name, s.SurgeryDate
+FROM Surgeries s
+JOIN Patient_Health_Records p ON s.MedicalRecord = p.Medical_Record
+WHERE s.Surgeon = 1; -- Replace 1 with the desired surgeon ID
+
+Retrieve the prescriptions along with the corresponding medical records and patient names:
+SELECT pr.dosage, pr.frequency, pr.duration, p.Medical_Record, p.Name AS Patient_Name
+FROM prescriptions pr
+JOIN Medications m ON pr.dosage = m.Dosage
+JOIN Patient_Health_Records p ON m.Medical_Record = p.Medical_Record;
+
+Update the district for a specific patient:
+UPDATE Patient_Health_Records
+SET District = 'Maseru'
+WHERE Patient_ID = 2;
+
+Update the specialty of a healthcare provider based on their name:
+UPDATE Healthcare_Providers
+SET Specialty = 'Pediatrics'
+WHERE Name = 'Queen II Hospital';
+
+Delete a medical condition and its associated records:
+DELETE FROM Medical_Conditions
+WHERE Name = 'Eczema';
+
+DELETE FROM Patient_Health_Records
+WHERE Diagnosis = 'Eczema';
+
+DELETE FROM Medications
+WHERE Medical_Record IN (
+    SELECT Medical_Record
+    FROM Patient_Health_Records
+    WHERE Diagnosis = 'Eczema'
+);
+
+Delete a healthcare provider and their associated surgeries:
+DELETE FROM Healthcare_Providers
+WHERE Provider_ID = 3;
+
+DELETE FROM Surgeries
+WHERE Surgeon = 3;
+
+
